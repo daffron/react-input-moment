@@ -63,7 +63,7 @@ class Day extends React.Component {
   }
 
   render() {
-    let {day, week, currentDay} = this.props;
+    let {day, week, currentDay, reserved} = this.props;
 
     let prevMonth = (week === 0 && day > 7);
     let nextMonth = (week >= 4 && day <= 14);
@@ -71,7 +71,8 @@ class Day extends React.Component {
     let cn = cx({
       'prev-month': prevMonth,
       'next-month': nextMonth,
-      'current': !prevMonth && !nextMonth && (day === currentDay)
+      'current': !prevMonth && !nextMonth && (day === currentDay),
+      'reserved': reserved.find(eachDay => eachDay === day)
     });
 
     return <td className={cn} onClick={this.props.onClick}>{day}</td>;

@@ -43,7 +43,7 @@ export default class extends React.Component {
           onNextYear={this.onNextYear.bind(this)}
           onToggleMode={this.onToggleMode.bind(this)}
         />
-        {mode === 'calendar' && <DateCalendar moment={mom} onDaySelect={this.onDaySelect.bind(this)}/>}
+        {mode === 'calendar' && <DateCalendar moment={mom} reserved='08/08/2017' onDaySelect={this.onDaySelect.bind(this)}/>}
         {mode === 'months' && <DateMonths moment={mom} onMonthSelect={this.onMonthSelect.bind(this)}/>}
       </div>
     );
