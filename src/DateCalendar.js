@@ -47,7 +47,8 @@ export default class extends React.Component {
         {chunk(days, 7).map((row, week) => (
           <tr key={week}>
             {row.map(day => (
-              <Day key={day} day={day} currentDay={currentDay} week={week} onClick={() => this.props.onDaySelect(day, week)}/>
+              
+               <Day key={day} day={day} currentDay={currentDay} /*isReserved={() => this.isReserved(day, week, currentDay)}*/ week={week} onClick={() => this.props.onDaySelect(day, week)}/> 
             ))}
           </tr>
         ))}
@@ -64,6 +65,11 @@ class Day extends React.Component {
 
   render() {
     let {day, week, currentDay, reserved} = this.props;
+    console.log("day", day)
+    console.log("week", week)
+    console.log("currentday", currentDay)
+
+
 
     let prevMonth = (week === 0 && day > 7);
     let nextMonth = (week >= 4 && day <= 14);
@@ -71,8 +77,8 @@ class Day extends React.Component {
     let cn = cx({
       'prev-month': prevMonth,
       'next-month': nextMonth,
-      'current': !prevMonth && !nextMonth && (day === currentDay),
-      'reserved': reserved.find(eachDay => eachDay === day)
+      'current': !prevMonth && !nextMonth && (day === currentDay)
+      // 'reserved': this.props.isReserved
     });
 
     return <td className={cn} onClick={this.props.onClick}>{day}</td>;
