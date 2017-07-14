@@ -83,7 +83,6 @@ export default class extends React.Component {
     let mom = this.props.moment.clone();
     let prevMonth = (week === 0 && day > 7);
     let nextMonth = (week >= 4 && day <= 14);
-    console.log(mom)
     mom.date(day);
     if (prevMonth) mom.subtract(1, 'month');
     if (nextMonth) mom.add(1, 'month');

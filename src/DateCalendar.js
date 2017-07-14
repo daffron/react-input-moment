@@ -34,7 +34,6 @@ export default class extends React.Component {
 
     let weeks = mom.localeData().weekdaysShort();
     weeks = weeks.slice(firstDayOfWeek).concat(weeks.slice(0, firstDayOfWeek));
-    console.log(chunk(days, 7))
     return (
       <table>
         <thead>
