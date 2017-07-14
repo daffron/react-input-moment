@@ -32,7 +32,7 @@ export default class extends React.Component {
   render() {
     let {mode} = this.state;
     let mom = this.getMoment();
-
+    
     return (
       <div className={cx('im-date-picker', this.props.className)}>
         <Toolbar
@@ -43,7 +43,7 @@ export default class extends React.Component {
           onNextYear={this.onNextYear.bind(this)}
           onToggleMode={this.onToggleMode.bind(this)}
         />
-        {mode === 'calendar' && <DateCalendar moment={mom} reserved='08/08/2017' onDaySelect={this.onDaySelect.bind(this)}/>}
+        {mode === 'calendar' && <DateCalendar moment={mom} reserved={this.props.taken} onDaySelect={this.onDaySelect.bind(this)}/>}
         {mode === 'months' && <DateMonths moment={mom} onMonthSelect={this.onMonthSelect.bind(this)}/>}
       </div>
     );
@@ -83,7 +83,7 @@ export default class extends React.Component {
     let mom = this.props.moment.clone();
     let prevMonth = (week === 0 && day > 7);
     let nextMonth = (week >= 4 && day <= 14);
-
+    console.log(mom)
     mom.date(day);
     if (prevMonth) mom.subtract(1, 'month');
     if (nextMonth) mom.add(1, 'month');

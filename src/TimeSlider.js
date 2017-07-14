@@ -44,6 +44,13 @@ export default class extends React.Component {
 
     let hours = Math.floor(totalMin / 60);
     let minutes = totalMin % 60;
+    if (minutes <= 15) {
+      minutes = 0
+    } else if (minutes > 15 && minutes < 44){
+      minutes = 30
+    } else {
+      minutes = 0
+    }
 
     mom.hours(hours).minutes(minutes);
     this.props.onChange(mom);

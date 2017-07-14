@@ -10,7 +10,8 @@ export default class extends React.Component {
     super(props);
 
     this.state = {
-      tab: 0
+      tab: 0,
+      taken:['08/08/2017']
     };
   }
 
@@ -48,6 +49,7 @@ export default class extends React.Component {
             moment={mom}
             locale={this.props.locale}
             onChange={this.props.onChange}
+            taken={this.props.taken}
           />
         </div>
         <div className={cx('tab-component', {'is-active': tab === 1})}>

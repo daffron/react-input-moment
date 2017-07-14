@@ -40,7 +40,7 @@ export default class extends React.Component {
               className="im-slider"
               xmin={0}
               xmax={30}
-              x={30}
+              x={mom.minute()}
               onChange={this.changeMinutes.bind(this)}
             />
             {this.props.showSeconds &&
@@ -69,7 +69,15 @@ export default class extends React.Component {
 
   changeMinutes(pos) {
     let mom = this.props.moment.clone();
-    mom.minutes(parseInt(pos.x, 10));
+    let minutes = parseInt(pos.x, 10)
+     if (minutes <= 15) {
+      minutes = 0
+    } else if (minutes > 15 && minutes < 44){
+      minutes = 30
+    } else {
+      minutes = 0
+    }
+    mom.minutes(minutes)
     this.props.onChange(mom);
   }
 

@@ -13,11 +13,7 @@ export default class extends React.Component {
     return (
       <div className="im-big-input-moment">
         <div className="date-wrapper">
-          <DatePicker
-            moment={mom}
-            locale={this.props.locale}
-            onChange={this.props.onChange}
-          />
+         
         </div>
         <div className="time-wrapper">
           <TimeSlider

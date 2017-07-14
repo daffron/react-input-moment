@@ -18,7 +18,8 @@ class App extends React.Component {
       timePickerMoment: moment(),
       showSeconds: true,
       locale: 'en',
-      size: 'medium'
+      size: 'medium',
+      taken: ['07/19/2017', '07/29/2017', '07/06/2017']
     };
   }
 
@@ -99,6 +100,7 @@ class App extends React.Component {
             locale={locale}
             showSeconds={showSeconds}
             onChange={mom => this.setState({inputMoment: mom})}
+            taken={this.state.taken}
           />
         </div>
         <br/>
@@ -110,14 +112,7 @@ class App extends React.Component {
           value={bigInputMoment.format('llll')}
           readOnly
         />
-        <div className={wrapperClass}>
-          <BigInputMoment
-            moment={bigInputMoment}
-            locale={locale}
-            showSeconds={showSeconds}
-            onChange={mom => this.setState({bigInputMoment: mom})}
-          />
-        </div>
+    
         <br/>
 
         <div className="header">DatePicker</div>
@@ -128,12 +123,7 @@ class App extends React.Component {
           readOnly
         />
         <div className={wrapperClass}>
-          <DatePicker
-            moment={datePickerMoment}
-            locale={locale}
-            showSeconds={showSeconds}
-            onChange={mom => this.setState({datePickerMoment: mom})}
-          />
+          
         </div>
         <br/>
 
