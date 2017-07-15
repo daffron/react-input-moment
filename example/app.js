@@ -100,7 +100,6 @@ class App extends React.Component {
             locale={locale}
             showSeconds={showSeconds}
             onChange={mom => this.setState({inputMoment: mom})}
-            taken={this.state.taken}
           />
         </div>
         <br/>
